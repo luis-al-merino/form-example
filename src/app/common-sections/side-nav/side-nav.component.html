@@ -1,0 +1,31 @@
+<nav class="side-nav flex-column mx-0">
+  <a
+    [routerLink]="['/home']"
+    class="side-nav__title text-center text-success">
+    <h3 class="pt-2 pt-md-5 font-weight-bold">DA</h3>
+    <h5 class="mb-2 font-weight-bold">Form Test</h5>
+  </a>
+  <div
+    class="text-center
+        mx-md-5 mx-2">
+    <button
+      type="button"
+      *ngIf="!onSignUpProcess"
+      [routerLink]="['sign-up/step1']"
+      class="
+        side-nav__button--sign-up
+        btn btn-sm btn-outline-success
+        text-center
+        my-3 my-md-5">
+      Sign up
+      <span class="fa fa-user-plus"></span>
+    </button>
+
+  <app-breadcrumb
+    *ngIf="onSignUpProcess"
+    [url]="url">
+  </app-breadcrumb>
+  </div>
+
+</nav>
+

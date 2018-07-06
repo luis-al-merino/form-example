@@ -1,0 +1,64 @@
+<article class="container my-5">
+  <div class="row justify-content-center">
+    <h3>Step 3: Confirmation.</h3>
+
+    <div class="w-100 my-2"></div>
+
+    <div class="col-12 col-md-6 col-lg-5" >
+
+      <ul class="list-group">
+        <li class="list-group-item active">
+          <h5>Step 1. Authentication:</h5>
+        </li>
+        <li class="list-group-item">
+          <strong>Login:</strong> {{userData?.login}}</li>
+        <li class="list-group-item">
+          <strong>Email:</strong> {{userData?.email}}</li>
+        <li class="list-group-item">
+          <strong>Password:</strong> {{userData?.password}}</li>
+      </ul>
+
+      <div class="w-100 my-3"></div>
+
+      <ul class="list-group">
+        <li class="list-group-item active">
+          <h5>Step 2. Personal data:</h5>
+        </li>
+        <li class="list-group-item">
+          <strong>Name:</strong> {{userData?.name}}</li>
+        <ul class="list-group-item">
+          <strong>Date of Birth:</strong>
+          <li class="list-group-item">
+            <strong>Day:</strong> {{userData?.dateOfBirth.day}}</li>
+          <li class="list-group-item">
+            <strong>Month:</strong> {{userData?.dateOfBirth.month}}</li>
+          <li class="list-group-item">
+            <strong>Year:</strong> {{userData?.dateOfBirth.year}}</li>
+        </ul>
+        <li class="confirmation__additional-info list-group-item">
+          <strong>Additional Information:</strong> {{userData?.additionalInfo}}</li>
+      </ul>
+    </div>
+
+    <div class="w-100 my-3"></div>
+
+    <button
+      type="button"
+      class="btn btn-danger btn-sm mx-1"
+      (click)="goTo('/home')">
+      Cancel
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary btn-sm mx-1"
+      (click)="goTo('/sign-up/step2')">
+      Back
+    </button>
+    <button
+      type="button"
+      class="btn btn-success btn-sm mx-1"
+      (click)="confirm()">
+      Confirm
+    </button>
+  </div>
+</article>

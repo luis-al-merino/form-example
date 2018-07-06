@@ -1,0 +1,18 @@
+
+<ul
+  class="nav mt-3 mt-md-5 justify-content-center">
+  <li class="nav-item"
+    *ngFor="let crumb of crumbs; let last = last">
+    <a
+      class="nav-link animate mx-1"
+      [routerLink]="isStepAvailable(crumb.url) ? [crumb.url]: null"
+      [ngClass]="{
+        'active': isActive(crumb.url),
+        'success': isStepAvailable(crumb.url),
+        'disable': !isStepAvailable(crumb.url),
+        'mb-2': last
+      }">
+      {{crumb.name}}
+    </a>
+  </li>
+</ul>

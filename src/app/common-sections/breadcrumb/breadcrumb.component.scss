@@ -1,0 +1,21 @@
+.success {
+  color: green;
+  border-radius: 16px;
+}
+
+.disable {
+  color: gray;
+  cursor: default;
+  border-radius: 16px;
+}
+
+.active {
+  color: white;
+  background-color: green;
+  border-radius: 16px;
+}
+
+.animate {
+ transition: all 0.7s ease-in-out;
+}
+

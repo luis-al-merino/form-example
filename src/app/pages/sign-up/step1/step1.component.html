@@ -1,0 +1,73 @@
+<article class="container my-5">
+  <div class="row justify-content-center">
+    <h3>Step 1: Authentication.</h3>
+
+    <div class="w-100"></div>
+
+    <form
+      class="col-12 col-md-6 col-lg-5"
+      [formGroup]="authenticationForm">
+
+      <div class="form-group">
+        <label for="login">Login</label>
+        <input type="text" class="form-control" formControlName="login" id="login">
+
+        <div
+          [hidden]="authenticationForm.controls['login'].valid || authenticationForm.controls['login'].pristine"
+          class="alert alert-danger">
+          Login name is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" formControlName="email" class="form-control" id="email">
+
+        <div
+          [hidden]="authenticationForm.controls['email'].valid || authenticationForm.controls['email'].pristine"
+          class="alert alert-danger">
+          Email is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" class="form-control" id="password">
+
+        <div
+          [hidden]="authenticationForm.controls['password'].valid || authenticationForm.controls['password'].pristine"
+          class="alert alert-danger">
+          Password is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" formControlName="confirmPassword" class="form-control" id="confirmPassword">
+        <div
+          [hidden]="authenticationForm.controls['confirmPassword'].valid"
+          class="alert alert-danger">
+          Please, to confirm the password is required.
+        </div>
+      </div>
+
+    </form>
+
+    <div class="w-100"></div>
+
+    <button
+      type="button"
+      class="btn btn-danger btn-sm mx-1"
+      (click)="authenticationForm.reset(); goTo('/home')">
+      Cancel
+    </button>
+    <button
+      type="submit"
+      class="btn btn-success btn-sm mx-1"
+      (click)="confirm(authenticationForm.value)"
+      [attr.disabled]="!authenticationForm.valid ? 'disabled' : null">
+      Continue
+    </button>
+
+  </div>
+</article>

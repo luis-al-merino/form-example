@@ -1,0 +1,70 @@
+<article class="container my-5">
+  <div class="row justify-content-center">
+    <h3>Step 2: Personal data.</h3>
+
+    <div class="w-100"></div>
+
+    <form
+      class="col-12 col-md-6 col-lg-5"
+      [formGroup]="personalDataForm">
+
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" formControlName="name"
+        id="name">
+
+        <div
+          [hidden]="personalDataForm.controls['name'].valid || personalDataForm.controls['name'].pristine"
+          class="alert alert-danger">
+          Name is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="dateOfBirth">Date Of Birth</label>
+        <input type="text" formControlName="dateOfBirth"
+        class="form-control" id="dateOfBirth" bsDatepicker
+        [bsConfig]="bsConfig">
+
+        <div
+          [hidden]="personalDataForm.controls['dateOfBirth'].valid || personalDataForm.controls['dateOfBirth'].pristine"
+          class="alert alert-danger">
+          Date of birth is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="additionalInfo">Additional Info</label>
+        <textarea type="text" formControlName="additionalInfo"
+          class="form-control" id="additionalInfo"
+          [maxlength]="maxTextLength" #extraInfo>
+        </textarea>
+        <small>
+          Remaining text: {{maxTextLength - extraInfo.value.length}}
+        </small>
+      </div>
+    </form>
+
+    <div class="w-100"></div>
+
+    <button
+      type="button"
+      class="btn btn-danger btn-sm mx-1"
+      (click)="personalDataForm.reset(); goTo('/home')">
+      Cancel
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary btn-sm mx-1"
+      (click)="goTo('/sign-up/step1')">
+      Back
+    </button>
+    <button
+      type="submit"
+      class="btn btn-success btn-sm mx-1"
+      (click)="confirm(personalDataForm.value)"
+      [attr.disabled]="!personalDataForm.valid ? 'disabled' : null">
+      Continue
+    </button>
+  </div>
+</article>

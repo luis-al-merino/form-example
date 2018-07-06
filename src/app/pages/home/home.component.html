@@ -1,0 +1,56 @@
+<article>
+  <div
+    class="home container text-center my-5">
+    <div
+      *ngIf="!confirmed"
+      class="home__not-confirmed">
+      <h5 class="font-weight-bold text-center">
+        Please, use the button to sign up.
+      </h5>
+    </div>
+    <div
+      *ngIf="confirmed"
+      class="home__confirmed row justify-content-center">
+      <h3>Thanks to complete the process</h3>
+
+      <div class="w-100 my-2"></div>
+
+      <div class="col-12 col-md-6 col-lg-5" >
+
+        <ul class="list-group">
+          <li class="list-group-item bg-success text-white">
+            <h5>Step 1. Authentication:</h5>
+          </li>
+          <li class="list-group-item">
+            <strong>Login:</strong> {{userData?.login}}</li>
+          <li class="list-group-item">
+            <strong>Email:</strong> {{userData?.email}}</li>
+          <li class="list-group-item">
+            <strong>Password:</strong> {{userData?.password}}</li>
+        </ul>
+
+        <div class="w-100 my-3"></div>
+
+        <ul class="list-group">
+          <li class="list-group-item bg-success text-white">
+            <h5>Step 2. Personal data:</h5>
+          </li>
+          <li class="list-group-item">
+            <strong>Name:</strong> {{userData?.name}}</li>
+          <ul class="list-group-item">
+            <strong>Date of Birth:</strong>
+            <li class="list-group-item">
+              <strong>Day:</strong> {{userData?.dateOfBirth.day}}</li>
+            <li class="list-group-item">
+              <strong>Month:</strong> {{userData?.dateOfBirth.month}}</li>
+            <li class="list-group-item">
+              <strong>Year:</strong> {{userData?.dateOfBirth.year}}</li>
+          </ul>
+          <li class="confirmation__additional-info list-group-item">
+            <strong>Additional Information:</strong> {{userData?.additionalInfo}}</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</article>
